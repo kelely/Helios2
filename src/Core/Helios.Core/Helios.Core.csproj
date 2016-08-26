@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,6 +58,9 @@
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\HeliosNullCache.cs" />
     <Compile Include="Configuration\HeliosConfig.cs" />
+    <Compile Include="Domain\BaseEntity.cs" />
+    <Compile Include="Domain\PagedList.cs" />
+    <Compile Include="Domain\PagedListExtensions.cs" />
     <Compile Include="HeliosException.cs" />
     <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
     <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
