@@ -1,28 +1,15 @@
-﻿using System.Collections;
+﻿using System;
 using System.Linq;
-using System.Web;
+using System.Runtime.Caching;
 
 namespace Helios.Caching
 {
     /// <summary>
-    /// 提供一个将数据缓存在HTTP请求内的缓存控制器(短期缓存,每个HTTP请求内有效)
+    /// 提供运行在本地进程内的内存缓存
     /// </summary>
-    public class PerRequestCacheManager : ICacheManager
+    public partial class MemoryCacheManager : ICacheManager
     {
-        private readonly HttpContextBase _context;
-
-        public PerRequestCacheManager(HttpContextBase context)
-        {
-            this._context = context;
-        }
-
-        protected virtual IDictionary GetItems()
-        {
-            if (_context == null)
-                return null;
-
-            return _context.Items;
-        }
+        protected ObjectCache Cache => MemoryCache.Default;
 
         /// <summary>
         /// 从缓存中获取与指定键关联的缓存对象。
@@ -32,11 +19,7 @@ namespace Helios.Caching
         /// <returns>指定键关联的缓存对象</returns>
         public virtual T Get<T>(string key)
         {
-            var items = GetItems();
-            if (items == null)
-                return default(T);
-
-            return (T)items[key];
+            return (T)Cache[key];
         }
 
         /// <summary>
@@ -47,17 +30,12 @@ namespace Helios.Caching
         /// <param name="cacheTime">缓存的生命周期(单位:分钟)</param>
         public virtual void Set(string key, object value, int cacheTime)
         {
-            var items = GetItems();
-            if (items == null)
-                return;
-
             if (value == null)
                 return;
 
-            if (items.Contains(key))
-                items[key] = value;
-            else
-                items.Add(key, value);
+            var policy = new CacheItemPolicy();
+            policy.AbsoluteExpiration = DateTime.Now + TimeSpan.FromMinutes(cacheTime);
+            Cache.Add(new CacheItem(key, value), policy);
         }
 
         /// <summary>
@@ -66,12 +44,7 @@ namespace Helios.Caching
         /// <param name="key">缓存对象关联的键值</param>
         public virtual bool IsSet(string key)
         {
-            var items = GetItems();
-
-            if (items == null)
-                return false;
-            
-            return items[key] != null;
+            return (Cache.Contains(key));
         }
 
         /// <summary>
@@ -80,11 +53,7 @@ namespace Helios.Caching
         /// <param name="key">缓存对象关联的键值</param>
         public virtual void Remove(string key)
         {
-            var items = GetItems();
-            if (items == null)
-                return;
-
-            items.Remove(key);
+            Cache.Remove(key);
         }
 
         /// <summary>
@@ -93,11 +62,7 @@ namespace Helios.Caching
         /// <param name="pattern">正则表达式</param>
         public virtual void RemoveByPattern(string pattern)
         {
-            var items = GetItems();
-            if (items == null)
-                return;
-
-            this.RemoveByPattern(pattern, items.Keys.Cast<object>().Select(p => p.ToString()));
+            this.RemoveByPattern(pattern, Cache.Select(p => p.Key));
         }
 
         /// <summary>
@@ -105,11 +70,8 @@ namespace Helios.Caching
         /// </summary>
         public virtual void Clear()
         {
-            var items = GetItems();
-            if (items == null)
-                return;
-
-            items.Clear();
+            foreach (var item in Cache)
+                Remove(item.Key);
         }
 
         public virtual void Dispose()
