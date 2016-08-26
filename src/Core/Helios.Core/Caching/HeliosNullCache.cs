@@ -1,58 +1,58 @@
-namespace Helios.Caching
+ï»¿namespace Helios.Caching
 {
     /// <summary>
-    /// Ìá¹©Ò»¸ö¿ÕµÄ»º´æ¿ØÖÆÆ÷(²»Ê¹ÓÃÈÎºÎ»º´æ)
+    /// æä¾›ä¸€ä¸ªç©ºçš„ç¼“å­˜æ§åˆ¶å™¨(ä¸ä½¿ç”¨ä»»ä½•ç¼“å­˜)
     /// </summary>
     public partial class HeliosNullCache : ICacheManager
     {
         /// <summary>
-        /// ´Ó»º´æÖĞ»ñÈ¡ÓëÖ¸¶¨¼ü¹ØÁªµÄ»º´æ¶ÔÏó¡£
+        /// ä»ç¼“å­˜ä¸­è·å–ä¸æŒ‡å®šé”®å…³è”çš„ç¼“å­˜å¯¹è±¡ã€‚
         /// </summary>
-        /// <typeparam name="T">»º´æ¶ÔÏóÀàĞÍ</typeparam>
-        /// <param name="key">»º´æ¶ÔÏó¹ØÁªµÄ¼üÖµ</param>
-        /// <returns>Ö¸¶¨¼ü¹ØÁªµÄ»º´æ¶ÔÏó</returns>
+        /// <typeparam name="T">ç¼“å­˜å¯¹è±¡ç±»å‹</typeparam>
+        /// <param name="key">ç¼“å­˜å¯¹è±¡å…³è”çš„é”®å€¼</param>
+        /// <returns>æŒ‡å®šé”®å…³è”çš„ç¼“å­˜å¯¹è±¡</returns>
         public virtual T Get<T>(string key)
         {
             return default(T);
         }
 
         /// <summary>
-        /// ½«Ö¸¶¨µÄ¼üºÍ¶ÔÏóÌí¼Óµ½»º´æÖĞ¡£ 
+        /// å°†æŒ‡å®šçš„é”®å’Œå¯¹è±¡æ·»åŠ åˆ°ç¼“å­˜ä¸­ã€‚ 
         /// </summary>
-        /// <param name="key">»º´æ¶ÔÏó¹ØÁªµÄ¼üÖµ</param>
-        /// <param name="value">ĞèÒª»º´æµÄÊı¾İ¶ÔÏó</param>
-        /// <param name="cacheTime">»º´æµÄÉúÃüÖÜÆÚ(µ¥Î»:·ÖÖÓ)</param>
-        public virtual void Set(string key, object data, int cacheTime)
+        /// <param name="key">ç¼“å­˜å¯¹è±¡å…³è”çš„é”®å€¼</param>
+        /// <param name="value">éœ€è¦ç¼“å­˜çš„æ•°æ®å¯¹è±¡</param>
+        /// <param name="cacheTime">ç¼“å­˜çš„ç”Ÿå‘½å‘¨æœŸ(å•ä½:åˆ†é’Ÿ)</param>
+        public virtual void Set(string key, object value, int cacheTime)
         {
         }
 
         /// <summary>
-        /// ¼ì²éÊÇ·ñ´æÔÚÓëÖ¸¶¨¼ü¹ØÁªµÄ»º´æ¶ÔÏó
+        /// æ£€æŸ¥æ˜¯å¦å­˜åœ¨ä¸æŒ‡å®šé”®å…³è”çš„ç¼“å­˜å¯¹è±¡
         /// </summary>
-        /// <param name="key">»º´æ¶ÔÏó¹ØÁªµÄ¼üÖµ</param>
+        /// <param name="key">ç¼“å­˜å¯¹è±¡å…³è”çš„é”®å€¼</param>
         public bool IsSet(string key)
         {
             return false;
         }
 
         /// <summary>
-        /// ´Ó»º´æÖĞÉ¾³ıÓëÖ¸¶¨¼ü¹ØÁªµÄ»º´æ¶ÔÏó
+        /// ä»ç¼“å­˜ä¸­åˆ é™¤ä¸æŒ‡å®šé”®å…³è”çš„ç¼“å­˜å¯¹è±¡
         /// </summary>
-        /// <param name="key">»º´æ¶ÔÏó¹ØÁªµÄ¼üÖµ</param>
+        /// <param name="key">ç¼“å­˜å¯¹è±¡å…³è”çš„é”®å€¼</param>
         public virtual void Remove(string key)
         {
         }
 
         /// <summary>
-        /// ´Ó»º´æÖĞÅúÁ¿É¾³ı¼üÖµÓëÖ¸¶¨ÕıÔò±í´ïÊ½Æ¥ÅäµÄµÄ»º´æ¶ÔÏó
+        /// ä»ç¼“å­˜ä¸­æ‰¹é‡åˆ é™¤é”®å€¼ä¸æŒ‡å®šæ­£åˆ™è¡¨è¾¾å¼åŒ¹é…çš„çš„ç¼“å­˜å¯¹è±¡
         /// </summary>
-        /// <param name="pattern">ÕıÔò±í´ïÊ½</param>
+        /// <param name="pattern">æ­£åˆ™è¡¨è¾¾å¼</param>
         public virtual void RemoveByPattern(string pattern)
         {
         }
 
         /// <summary>
-        /// Çå³ıËùÓĞ»º´æÊı¾İ
+        /// æ¸…é™¤æ‰€æœ‰ç¼“å­˜æ•°æ®
         /// </summary>
         public virtual void Clear()
         {
