@@ -58,6 +58,8 @@
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\HeliosNullCache.cs" />
     <Compile Include="Configuration\HeliosConfig.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\RepositoryExtensions.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\PagedList.cs" />
     <Compile Include="Domain\PagedListExtensions.cs" />
@@ -77,6 +79,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
