@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\Extensions.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\HeliosNullCache.cs" />
     <Compile Include="Configuration\HeliosConfig.cs" />
     <Compile Include="HeliosException.cs" />
     <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
