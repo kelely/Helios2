@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios.Services.Common", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Helios.Services.Common", "Services\Common\Tests.Helios.Services.Common\Tests.Helios.Services.Common.csproj", "{FFC8215D-E697-4466-B584-A523A497B835}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios.Services.Common.Impl", "Services\Common\Helios.Services.Common.Impl\Helios.Services.Common.Impl.csproj", "{E969FA05-5DA5-4D21-B32D-22806C0CD458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{FFC8215D-E697-4466-B584-A523A497B835}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFC8215D-E697-4466-B584-A523A497B835}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFC8215D-E697-4466-B584-A523A497B835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E969FA05-5DA5-4D21-B32D-22806C0CD458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E969FA05-5DA5-4D21-B32D-22806C0CD458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E969FA05-5DA5-4D21-B32D-22806C0CD458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E969FA05-5DA5-4D21-B32D-22806C0CD458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +71,6 @@ Global
 		{A046B6F2-6FC7-4702-842C-47AB19F63D6A} = {A080D1BD-8C15-4ECD-8811-6C2D53E1097C}
 		{27DAF31D-2177-4323-AE45-E2EB87CD8E43} = {A046B6F2-6FC7-4702-842C-47AB19F63D6A}
 		{FFC8215D-E697-4466-B584-A523A497B835} = {A046B6F2-6FC7-4702-842C-47AB19F63D6A}
+		{E969FA05-5DA5-4D21-B32D-22806C0CD458} = {A046B6F2-6FC7-4702-842C-47AB19F63D6A}
 	EndGlobalSection
 EndGlobal
