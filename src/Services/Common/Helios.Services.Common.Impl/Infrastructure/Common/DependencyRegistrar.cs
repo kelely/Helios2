@@ -26,9 +26,6 @@ namespace Helios.Infrastructure.Common
                 .InstancePerLifetimeScope();
         }
 
-        public int Order
-        {
-            get { return 10; }
-        }
+        public int Order => 10;
     }
 }
