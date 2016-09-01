@@ -12,7 +12,7 @@ namespace Helios.Web.Providers
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
+        public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             string clientId;
             string clientSecret;
@@ -24,7 +24,7 @@ namespace Helios.Web.Providers
                 context.Validated(clientId);
             }
 
-            return base.ValidateClientAuthentication(context);
+            await base.ValidateClientAuthentication(context);
         }
 
         /// <summary>
@@ -32,14 +32,26 @@ namespace Helios.Web.Providers
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public override Task GrantClientCredentials(OAuthGrantClientCredentialsContext context)
+        public override async Task GrantClientCredentials(OAuthGrantClientCredentialsContext context)
         {
             var oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
             oAuthIdentity.AddClaim(new Claim(ClaimTypes.Name, "iOS App"));
             var ticket = new AuthenticationTicket(oAuthIdentity, new AuthenticationProperties());
             context.Validated(ticket);
 
-            return base.GrantClientCredentials(context);
+            await base.GrantClientCredentials(context);
+        }
+
+        public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
+        {
+            //TODO:调用后台的登录服务验证用户名与密码
+
+            var oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
+            oAuthIdentity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+            var ticket = new AuthenticationTicket(oAuthIdentity, new AuthenticationProperties());
+            context.Validated(ticket);
+
+            await base.GrantResourceOwnerCredentials(context);
         }
     }
 }
