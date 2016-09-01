@@ -16,7 +16,7 @@ namespace Helios.Web.Providers
         {
             string clientId;
             string clientSecret;
-            context.TryGetFormCredentials(out clientId, out clientSecret);
+            context.TryGetBasicCredentials(out clientId, out clientSecret);
 
             // TODO: 调用后端业务逻辑对clientId以及clientSecret 进行配对校验
             if (clientId == "1234" && clientSecret == "5678")
