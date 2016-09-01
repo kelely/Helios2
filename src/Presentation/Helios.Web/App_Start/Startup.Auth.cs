@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Helios.Web.Providers;
-using Helios.Web.Models;
 
 namespace Helios.Web
 {
@@ -27,8 +20,10 @@ namespace Helios.Web
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new HeliosAuthorizationServerProvider(),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+#if DEBUG
                 //在生产模式下设 AllowInsecureHttp = false
-                AllowInsecureHttp = true
+                AllowInsecureHttp = true,       // 重要！！这里的设置包含整个流程通信环境是否启用ssl
+#endif
             };
 
             // 使应用程序可以使用不记名令牌来验证用户身份
