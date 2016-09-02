@@ -36,4 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 
-[assembly: InternalsVisibleTo("Tests.Helios.Services.Common")]
+[assembly: InternalsVisibleTo("Helios.Common.Tests")]

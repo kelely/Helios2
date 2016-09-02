@@ -4,10 +4,9 @@ using Helios.Domain;
 using Helios.Domain.Common;
 using Helios.Services.Common;
 using Rhino.Mocks;
-using Rhino.Mocks.Constraints;
 using Xunit;
 
-namespace Tests.Helios.Domain
+namespace Helios.Common.Tests.Domain
 {
     public class GenericAttributeExtensionsTests
     {
