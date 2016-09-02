@@ -12,6 +12,7 @@ namespace Helios.Web
     {
         public void Configuration(IAppBuilder app)
         {
+            ConfigureAutofac(app);
             ConfigureAuth(app);
         }
     }

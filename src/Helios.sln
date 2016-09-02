@@ -33,6 +33,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios.Web", "Presentation\Helios.Web\Helios.Web.csproj", "{5CF3D186-C010-4D0A-86AE-2D964362D612}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{9BF97D95-87C2-40D0-878F-208E705FD5A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios.Authentication", "Services\Authentication\Helios.Authentication\Helios.Authentication.csproj", "{4C3D9014-7AAA-497E-8E55-9167462A6540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helios.Authentication.Impl", "Services\Authentication\Helios.Authentication.Impl\Helios.Authentication.Impl.csproj", "{0C5CFA5B-3E5C-4A10-86AF-1E2894E049FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +81,14 @@ Global
 		{5CF3D186-C010-4D0A-86AE-2D964362D612}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CF3D186-C010-4D0A-86AE-2D964362D612}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CF3D186-C010-4D0A-86AE-2D964362D612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C3D9014-7AAA-497E-8E55-9167462A6540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3D9014-7AAA-497E-8E55-9167462A6540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3D9014-7AAA-497E-8E55-9167462A6540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3D9014-7AAA-497E-8E55-9167462A6540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5CFA5B-3E5C-4A10-86AF-1E2894E049FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5CFA5B-3E5C-4A10-86AF-1E2894E049FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5CFA5B-3E5C-4A10-86AF-1E2894E049FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5CFA5B-3E5C-4A10-86AF-1E2894E049FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +105,8 @@ Global
 		{74E2522C-47DB-473C-B496-F2DC5A0E3A58} = {A080D1BD-8C15-4ECD-8811-6C2D53E1097C}
 		{122A4219-445C-48AD-970A-0527885B461F} = {74E2522C-47DB-473C-B496-F2DC5A0E3A58}
 		{5CF3D186-C010-4D0A-86AE-2D964362D612} = {CF34A4E4-D419-4D77-ABDC-BF8BE1C66757}
+		{9BF97D95-87C2-40D0-878F-208E705FD5A6} = {A080D1BD-8C15-4ECD-8811-6C2D53E1097C}
+		{4C3D9014-7AAA-497E-8E55-9167462A6540} = {9BF97D95-87C2-40D0-878F-208E705FD5A6}
+		{0C5CFA5B-3E5C-4A10-86AF-1E2894E049FB} = {9BF97D95-87C2-40D0-878F-208E705FD5A6}
 	EndGlobalSection
 EndGlobal

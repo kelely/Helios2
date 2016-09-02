@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Helios.Infrastructure;
 
 namespace Helios.Web
 {
@@ -13,6 +14,8 @@ namespace Helios.Web
     {
         protected void Application_Start()
         {
+            EngineContext.Initialize(false);
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
