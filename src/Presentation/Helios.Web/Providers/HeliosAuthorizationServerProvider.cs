@@ -22,6 +22,13 @@ namespace Helios.Web.Providers
             if (!context.TryGetBasicCredentials(out clientId, out clientSecret))
                 context.TryGetFormCredentials(out clientId, out clientSecret);
 
+            if (context.ClientId == null)
+            {
+                context.Validated();
+                context.SetError("invalid_clientId", "请求中并不包含 client_id 信息。");
+                await Task.FromResult<object>(null);
+            }
+
             // TODO: 调用后端业务逻辑对clientId以及clientSecret 进行配对校验
             if (clientId == "1234" && clientSecret == "5678")
             {
