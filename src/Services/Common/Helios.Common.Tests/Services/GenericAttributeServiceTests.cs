@@ -2,14 +2,12 @@
 using System.Linq;
 using FluentAssertions;
 using Helios.Caching;
+using Helios.Common.Domain;
 using Helios.Data;
-using Helios.Domain.Common;
-using Helios.Services.Common;
 using Rhino.Mocks;
-using Rhino.Mocks.Constraints;
 using Xunit;
 
-namespace Tests.Helios.Services.Common
+namespace Helios.Common.Services
 {
     public class GenericAttributeServiceTests 
     {

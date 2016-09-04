@@ -3,10 +3,11 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Helios.Configuration;
 
-namespace Helios.Services.Common
+namespace Helios.Common
 {
     public static class SettingExtensions
     {
+        #region ISettings
         /// <summary>
         /// Get setting key (stored into database)
         /// </summary>
@@ -37,5 +38,6 @@ namespace Helios.Services.Common
 
             return typeof(T).Name + "." + propInfo.Name;
         }
+        #endregion
     }
 }

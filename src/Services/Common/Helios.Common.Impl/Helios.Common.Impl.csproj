@@ -7,7 +7,7 @@
     <ProjectGuid>{E969FA05-5DA5-4D21-B32D-22806C0CD458}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Helios</RootNamespace>
+    <RootNamespace>Helios.Common</RootNamespace>
     <AssemblyName>Helios.Common.Impl</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -59,10 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\Common\RouteProvider.cs" />
-    <Compile Include="Infrastructure\Common\DependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\RouteProvider.cs" />
+    <Compile Include="Infrastructure\DependencyRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Common\GenericAttributeService.cs" />
+    <Compile Include="Services\GenericAttributeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Helios.Core\Helios.Core.csproj">

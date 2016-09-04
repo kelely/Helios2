@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization;
+using Helios.Domain;
 
-namespace Helios.Domain.Common
+namespace Helios.Common.Domain
 {
     /// <summary>
     /// 提供按租户隔离的配置信息实体

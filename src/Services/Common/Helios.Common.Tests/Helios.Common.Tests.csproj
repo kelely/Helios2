@@ -7,7 +7,7 @@
     <ProjectGuid>{FFC8215D-E697-4466-B584-A523A497B835}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Helios.Common.Tests</RootNamespace>
+    <RootNamespace>Helios.Common</RootNamespace>
     <AssemblyName>Helios.Common.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -70,7 +70,7 @@
   <ItemGroup>
     <Compile Include="Domain\GenericAttributeExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Common\GenericAttributeServiceTests.cs" />
+    <Compile Include="Services\GenericAttributeServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

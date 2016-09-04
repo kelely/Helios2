@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Helios.Common.Domain;
 using Helios.Configuration;
-using Helios.Domain.Common;
 
-namespace Helios.Services.Common
+namespace Helios.Common.Services
 {
     /// <summary>
     /// 租户隔离的配置项服务接口

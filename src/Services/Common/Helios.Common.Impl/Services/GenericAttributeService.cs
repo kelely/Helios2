@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Common.Logging;
 using Helios.Caching;
+using Helios.Common.Domain;
 using Helios.Data;
-using Helios.Domain.Common;
 
-namespace Helios.Services.Common
+namespace Helios.Common.Services
 {
     /// <summary>
     /// 领域实体对象的扩展属性服务接口的实现类

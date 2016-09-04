@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using FluentAssertions;
-using Helios.Domain;
-using Helios.Domain.Common;
-using Helios.Services.Common;
+using Helios.Common.Services;
 using Rhino.Mocks;
 using Xunit;
 
-namespace Helios.Common.Tests.Domain
+namespace Helios.Common.Domain
 {
     public class GenericAttributeExtensionsTests
     {

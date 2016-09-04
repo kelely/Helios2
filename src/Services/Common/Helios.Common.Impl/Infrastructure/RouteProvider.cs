@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel.Activation;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel.Activation;
 using System.Web.Routing;
 using Autofac.Integration.Wcf;
 using Common.Logging;
-using Helios.Services.Common;
+using Helios.Common.Services;
 using Helios.Web.Routes;
 
-namespace Helios.Infrastructure.Common
+namespace Helios.Common.Infrastructure
 {
     public class RouteProvider : IRouteProvider
     {

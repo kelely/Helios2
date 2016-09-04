@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Autofac.Core;
 using Common.Logging;
 using Helios.Caching;
+using Helios.Common.Services;
 using Helios.Configuration;
+using Helios.Infrastructure;
 using Helios.Infrastructure.DependencyManagement;
-using Helios.Services.Common;
 
-namespace Helios.Infrastructure.Common
+namespace Helios.Common.Infrastructure
 {
     public class DependencyRegistrar : IDependencyRegistrar
     {

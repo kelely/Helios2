@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using Helios.Domain.Common;
+using Helios.Common.Domain;
 
-namespace Helios.Services.Common
+namespace Helios.Common.Services
 {
     /// <summary>
     /// 领域实体对象的扩展属性服务接口
