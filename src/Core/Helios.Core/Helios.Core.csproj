@@ -63,9 +63,11 @@
     <Compile Include="Helios\ComponentModel\GenericDictionaryTypeConverter.cs" />
     <Compile Include="Helios\ComponentModel\GenericListTypeConverter.cs" />
     <Compile Include="Helios\Configuration\HeliosConfig.cs" />
+    <Compile Include="Helios\Configuration\ISettings.cs" />
     <Compile Include="Helios\Data\IRepository.cs" />
     <Compile Include="Helios\Data\RepositoryExtensions.cs" />
     <Compile Include="Helios\Domain\BaseEntity.cs" />
+    <Compile Include="Helios\Domain\TenantBaseEntity.cs" />
     <Compile Include="Helios\Domain\PagedList.cs" />
     <Compile Include="Helios\Domain\PagedListExtensions.cs" />
     <Compile Include="HeliosException.cs" />
