@@ -74,6 +74,7 @@
     <Compile Include="Helios\Infrastructure\AppDomainTypeFinder.cs" />
     <Compile Include="Helios\Infrastructure\DependencyManagement\ContainerManager.cs" />
     <Compile Include="Helios\Infrastructure\DependencyManagement\IDependencyRegistrar.cs" />
+    <Compile Include="Helios\Infrastructure\DependencyRegistrar.cs" />
     <Compile Include="Helios\Infrastructure\Engine.cs" />
     <Compile Include="Helios\Infrastructure\EngineContext.cs" />
     <Compile Include="Helios\Infrastructure\IEngine.cs" />
