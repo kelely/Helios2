@@ -7,7 +7,7 @@
     <ProjectGuid>{62D200FB-52D5-4966-A7F0-3927DE1AD265}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Helios</RootNamespace>
+    <RootNamespace>Helios.Data</RootNamespace>
     <AssemblyName>Helios.Data.EF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -69,10 +69,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\EfRepository.cs" />
-    <Compile Include="Data\HeliosObjectContext.cs" />
-    <Compile Include="Data\IDbContext.cs" />
-    <Compile Include="Infrastructure\Data\DependencyRegistrar.cs" />
+    <Compile Include="EfRepository.cs" />
+    <Compile Include="HeliosObjectContext.cs" />
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="Infrastructure\DependencyRegistrar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
