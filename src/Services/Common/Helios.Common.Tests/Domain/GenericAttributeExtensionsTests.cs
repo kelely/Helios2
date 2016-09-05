@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using FluentAssertions;
 using Helios.Common.Services;
+using NUnit.Framework;
 using Rhino.Mocks;
-using Xunit;
 
 namespace Helios.Common.Domain
 {
+    [TestFixture]
     public class GenericAttributeExtensionsTests
     {
-        private readonly IGenericAttributeService _genericAttributeService;
+        private IGenericAttributeService _genericAttributeService;
 
-        public GenericAttributeExtensionsTests()
+        [SetUp]
+        public void Setup()
         {
             var attributes = new List<GenericAttribute>
             {
@@ -25,7 +27,7 @@ namespace Helios.Common.Domain
                 .Return(attributes);
         }
 
-        [Fact(DisplayName = "确保可以通过实体对象的扩展方法新增扩展属性")]
+        [Test(Description = "确保可以通过实体对象的扩展方法新增扩展属性")]
         public void Ensure_insert_generic_attribute_via_entity_extensions_method()
         {
             var entity = new GenericAttribute { Id = 1 };
@@ -34,7 +36,7 @@ namespace Helios.Common.Domain
             _genericAttributeService.AssertWasCalled(x => x.SaveAttribute(Arg<GenericAttribute>.Matches(ga => ga.Id == 0 && ga.Value == "True" && ga.Key == "property1")));
         }
 
-        [Fact(DisplayName = "确保可以通过实体对象的扩展方法更新扩展属性")]
+        [Test(Description = "确保可以通过实体对象的扩展方法更新扩展属性")]
         public void Ensure_update_generic_attribute_via_entity_extensions_method()
         {
             var entity = new GenericAttribute { Id = 1 };
@@ -45,7 +47,7 @@ namespace Helios.Common.Domain
             _genericAttributeService.AssertWasCalled(x => x.SaveAttribute(Arg<GenericAttribute>.Matches(ga=> ga.Id == 1 && ga.Value == "Guo")));
         }
 
-        [Fact(DisplayName = "确保扩展属性值为空字符串时会删除扩展属性")]
+        [Test(Description = "确保扩展属性值为空字符串时会删除扩展属性")]
         public void Ensure_delete_generic_attribute_via_entity_extensions_method()
         {
             var entity = new GenericAttribute { Id = 1 };
@@ -56,7 +58,7 @@ namespace Helios.Common.Domain
             _genericAttributeService.AssertWasCalled(x => x.SaveAttribute(Arg<GenericAttribute>.Matches(ga => ga.Id == 1 && ga.Value == "")));
         }
 
-        [Fact(DisplayName = "确保扩展属性值为空时会删除扩展属性")]
+        [Test(Description = "确保扩展属性值为空时会删除扩展属性")]
         public void Ensure_delete_generic_attribute_via_entity_extensions_method2()
         {
             var entity = new GenericAttribute { Id = 1 };
@@ -67,7 +69,7 @@ namespace Helios.Common.Domain
             _genericAttributeService.AssertWasCalled(x => x.SaveAttribute(Arg<GenericAttribute>.Matches(ga => ga.Id == 1 && ga.Value == null)));
         }
 
-        [Fact(DisplayName = "确保可以通过实体对象的扩展方法获取扩展属性")]
+        [Test(Description = "确保可以通过实体对象的扩展方法获取扩展属性")]
         public void Can_get_generic_attribute_via_entity_extensions_method()
         {
             var entity = new GenericAttribute { Id = 1 };

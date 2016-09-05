@@ -4,17 +4,19 @@ using FluentAssertions;
 using Helios.Caching;
 using Helios.Common.Domain;
 using Helios.Data;
+using NUnit.Framework;
 using Rhino.Mocks;
-using Xunit;
 
 namespace Helios.Common.Services
 {
+    [TestFixture]
     public class GenericAttributeServiceTests 
     {
-        private readonly IRepository<GenericAttribute> _genericAttributeRepository;
-        private readonly IGenericAttributeService _genericAttributeService;
+        private IRepository<GenericAttribute> _genericAttributeRepository;
+        private IGenericAttributeService _genericAttributeService;
 
-        public GenericAttributeServiceTests()
+        [SetUp]
+        public void Setup()
         {
             var attributes = new List<GenericAttribute>
             {
@@ -37,7 +39,7 @@ namespace Helios.Common.Services
             _genericAttributeService = new GenericAttributeService(new HeliosNullCache(), _genericAttributeRepository);
         }
 
-        [Fact(DisplayName = "确保可以通过Id获取通用属性实体对象")]
+        [Test(Description = "确保可以通过Id获取通用属性实体对象")]
         public void Can_get_attribute_by_id()
         {
             var ga = _genericAttributeService.GetAttributeById(1);
@@ -47,7 +49,7 @@ namespace Helios.Common.Services
             ga.EntityId.Should().Be(1);
         }
 
-        [Fact(DisplayName = "确保可以通过实体Id和名称获取实体扩展属性集合")]
+        [Test(Description = "确保可以通过实体Id和名称获取实体扩展属性集合")]
         public void Can_get_attributes_for_entity()
         {
             var attributes = _genericAttributeService.GetAttributesForEntity(1, "helios.domain.customers.customer");
@@ -58,7 +60,7 @@ namespace Helios.Common.Services
             attributes.Should().NotBeNull().And.HaveCount(4);
         }
 
-        [Fact(DisplayName = "确保在扩展属性值为空字符串时，会将通用属性数据删除")]
+        [Test(Description = "确保在扩展属性值为空字符串时，会将通用属性数据删除")]
         public void Can_delete_generic_attribute_with_empty_value()
         {
             var ga = new GenericAttribute { Id = 4, EntityId = 1, EntityGroup = "helios.domain.customers.customer", Key = "DateOfBirth", Value = "" };
@@ -68,7 +70,7 @@ namespace Helios.Common.Services
             //_eventPublisher.AssertWasCalled(x => x.Publish(Arg<EntityDeleted<GenericAttribute>>.Is.Anything));
         }
 
-        [Fact(DisplayName = "确保在扩展属性值为空对象时，会将通用属性数据删除")]
+        [Test(Description = "确保在扩展属性值为空对象时，会将通用属性数据删除")]
         public void Can_delete_generic_attribute_with_null_object()
         {
             var ga = new GenericAttribute { Id = 4, EntityId = 1, EntityGroup = "helios.domain.customers.customer", Key = "DateOfBirth", Value = null };
@@ -78,7 +80,7 @@ namespace Helios.Common.Services
             //_eventPublisher.AssertWasCalled(x => x.Publish(Arg<EntityDeleted<GenericAttribute>>.Is.Anything));
         }
 
-        [Fact(DisplayName = "确保可以增加通用属性实体")]
+        [Test(Description = "确保可以增加通用属性实体")]
         public void Can_insert_generic_attribute()
         {
             var ga = new GenericAttribute { Id = 0, EntityId = 1, EntityGroup = "helios.domain.customers.customer", Key = "DateOfBirth", Value = "2016-09-16" };
@@ -88,7 +90,7 @@ namespace Helios.Common.Services
             //_eventPublisher.AssertWasCalled(x => x.Publish(Arg<EntityInserted<GenericAttribute>>.Is.Anything));
         }
 
-        [Fact(DisplayName = "确保可以更新通用属性实体对象")]
+        [Test(Description = "确保可以更新通用属性实体对象")]
         public void Can_update_generic_attribute()
         {
             var ga = new GenericAttribute { Id = 7, EntityId = 2, EntityGroup = "helios.domain.customers.customer", Key = "LastName", Value = "Guang" };
