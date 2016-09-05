@@ -15,10 +15,14 @@ namespace Helios.Common.Infrastructure
 
         public void Register(ContainerBuilder builder, ITypeFinder typeFinder, HeliosConfig config)
         {
-            Logger.Debug("注册领域对象扩展属性服务");
+            Logger.Debug("注册通用业务组件服务");
 
             builder.RegisterType<GenericAttributeService>().AsImplementedInterfaces()
-                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("nop_cache_static"))
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("helios_cache_static"))
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<SettingService>().AsImplementedInterfaces()
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("helios_cache_static"))
                 .InstancePerLifetimeScope();
         }
 
