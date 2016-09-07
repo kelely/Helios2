@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Helios.Domain.Authentication;
+﻿using Helios.Authentication.Domain;
 
-namespace Helios.Services.Authentication
+namespace Helios.Authentication.Services
 {
     public interface IAuthenticationService
     {

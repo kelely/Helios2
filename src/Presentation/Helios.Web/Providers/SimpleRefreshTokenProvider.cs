@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Helios.Domain.Authentication;
+using Helios.Authentication.Domain;
+using Helios.Authentication.Services;
 using Helios.Infrastructure;
-using Helios.Services.Authentication;
 using Microsoft.Owin.Security.Infrastructure;
 
 namespace Helios.Web.Providers

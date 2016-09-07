@@ -1,8 +1,8 @@
 ﻿using Autofac;
+using Helios.Authentication.Services;
 using Helios.Configuration;
 using Helios.Infrastructure;
 using Helios.Infrastructure.DependencyManagement;
-using Helios.Services.Authentication;
 
 namespace Helios.Web.Infrastructure
 {

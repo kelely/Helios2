@@ -1,4 +1,4 @@
-﻿namespace Helios.Domain.Authentication
+﻿namespace Helios.Authentication.Domain
 {
     public enum ApplicationTypes
     {

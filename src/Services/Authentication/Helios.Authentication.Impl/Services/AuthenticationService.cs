@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
-using Helios.Caching;
-using Helios.Domain.Authentication;
+using Helios.Authentication.Domain;
 
-namespace Helios.Services.Authentication
+namespace Helios.Authentication.Services
 {
     public class AuthenticationService : IAuthenticationService
     {

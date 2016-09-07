@@ -7,7 +7,7 @@
     <ProjectGuid>{4C3D9014-7AAA-497E-8E55-9167462A6540}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Helios</RootNamespace>
+    <RootNamespace>Helios.Authentication</RootNamespace>
     <AssemblyName>Helios.Authentication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Authentication\ApplicationTypes.cs" />
-    <Compile Include="Domain\Authentication\Client.cs" />
-    <Compile Include="Domain\Authentication\RefreshToken.cs" />
+    <Compile Include="Domain\ApplicationTypes.cs" />
+    <Compile Include="Domain\Client.cs" />
+    <Compile Include="Domain\RefreshToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Authentication\IAuthenticationService.cs" />
+    <Compile Include="Services\IAuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

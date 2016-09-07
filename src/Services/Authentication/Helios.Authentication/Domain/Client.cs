@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Helios.Domain;
 
-namespace Helios.Domain.Authentication
+namespace Helios.Authentication.Domain
 {
     public class Client : BaseEntity
     {

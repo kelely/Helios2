@@ -1,6 +1,7 @@
 using System;
+using Helios.Domain;
 
-namespace Helios.Domain.Authentication
+namespace Helios.Authentication.Domain
 {
     public class RefreshToken : BaseEntity
     {
