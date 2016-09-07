@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using Common.Logging;
+using Helios.Data.Mapping;
 using Helios.Domain;
 using Helios.Infrastructure;
 using MySql.Data.Entity;
@@ -40,6 +41,7 @@ namespace Helios.Data
             //System.Type configType = typeof(LanguageMap);   //any of your configuration classes here
             //var typesToRegister = Assembly.GetAssembly(configType).GetTypes()
 
+
             var typeFinder = EngineContext.Current.Resolve<ITypeFinder>();
             foreach (var assembly in typeFinder.GetAssemblies())
             {
@@ -47,9 +49,7 @@ namespace Helios.Data
                     .Where(type => !string.IsNullOrEmpty(type.Namespace))
                     .Where(type => !type.IsAbstract)
                     .Where(type => type.BaseType != null && type.BaseType.IsGenericType)
-//                    .Where(type => type.BaseType.GetGenericTypeDefinition() == typeof(HeliosEntityTypeConfiguration<>));
-                    .Where(type => type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
-                
+                    .Where(type => type.BaseType.GetGenericTypeDefinition() == typeof(HeliosEntityTypeConfiguration<>));
 
                 foreach (var type in typesToRegister)
                 {
