@@ -56,7 +56,7 @@ namespace Helios.Common.Domain
             var setting = new FakeSettings();
             setting.EnableOrderSystem = true;
             setting.ShortMessageServiceUrl = "http://www.helios.com/service1";
-            var collection = setting.AsNameValueCollection();
+            var collection = setting.AsDictionary();
 
             Assert.That(collection, Has.Count.EqualTo(2));
             Assert.That(collection["FakeSettings.EnableOrderSystem"], Is.EqualTo("True"));

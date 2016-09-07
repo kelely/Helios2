@@ -77,7 +77,7 @@ namespace Helios.Common.Services
         [Test(Description = "对应租户全新的配置可以全部保存到数据库")]
         public void Can_save_settings_collection()
         {
-            var collection = new NameValueCollection();
+            var collection = new Dictionary<string, string>();
             collection.Add("FakeSettings.EnableOrderSystem", "True");
             collection.Add("FakeSettings.ShortMessageServiceUrl", "http://www.example.com/service3");
 
@@ -89,7 +89,7 @@ namespace Helios.Common.Services
         [Test(Description = "新的配置使用新增，老的配置使用更新, 不至于产生重复数据")]
         public void Can_save_settings_collection2()
         {
-            var collection = new NameValueCollection();
+            var collection = new Dictionary<string, string>();
             collection.Add("FakeSettings.EnableOrderSystem", "True");
             collection.Add("FakeSettings.ShortMessageServiceUrl", "http://www.example.com/service3");
 
@@ -102,7 +102,7 @@ namespace Helios.Common.Services
         [Test(Description = "更新配置时, 值为空的配置项会被删除")]
         public void Can_save_settings_collection3()
         {
-            var collection = new NameValueCollection();
+            var collection = new Dictionary<string, string>();
             collection.Add("FakeSettings.EnableOrderSystem", null);
 
             _settingService.SaveSettings(collection, 2);

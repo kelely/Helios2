@@ -312,11 +312,11 @@ namespace Helios.Common.Services
         /// </summary>
         /// <param name="tenantId">租户Id</param>
         /// <param name="settings">配置的键值对集合</param>
-        public void SaveSettings(NameValueCollection settings, int tenantId)
+        public void SaveSettings(Dictionary<string, string> settings, int tenantId)
         {
             /* 每次设置更新后，我们不清除缓存。
              * 此行为可以提高性能，因为不会每一次更新都会更新缓存 */
-            foreach (var key in settings.AllKeys)
+            foreach (var key in settings.Keys)
             {
                 string value = settings[key];
                 SetSetting(key, !string.IsNullOrEmpty(value) ? value : "", tenantId, false);

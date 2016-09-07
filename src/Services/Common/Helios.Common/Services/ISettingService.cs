@@ -51,6 +51,6 @@ namespace Helios.Common.Services
         /// <param name="tenantId">租户Id</param>
         /// <param name="settings">配置的键值对集合</param>
         [OperationContract]
-        void SaveSettings(NameValueCollection settings, int tenantId);
+        void SaveSettings(Dictionary<string, string> settings, int tenantId);
     }
 }

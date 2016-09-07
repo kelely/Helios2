@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -33,10 +34,10 @@ namespace Helios.Common
             return typeof(T).Name + "." + propInfo.Name;
         }
 
-        public static NameValueCollection AsNameValueCollection<T>(this T entity)
+        public static Dictionary<string, string> AsDictionary<T>(this T entity)
             where T : ISettings, new()
         {
-            var collection = new NameValueCollection();
+            var collection = new Dictionary<string, string>();
 
             foreach (var prop in typeof(T).GetProperties())
             {
@@ -49,8 +50,7 @@ namespace Helios.Common
 
                 string key = typeof(T).Name + "." + prop.Name;
 
-                //Duck typing is not supported in C#. That's why we're using dynamic type
-                dynamic value = CommonHelper.To<string>(prop.GetValue(entity, null));
+                string value = CommonHelper.To<string>(prop.GetValue(entity, null));
                 collection.Add(key, value);
             }
 
@@ -134,9 +134,8 @@ namespace Helios.Common
         /// <param name="settings">Setting instance</param>
         public static void SaveSettings<T>(this ISettingService settingService, T settings, int tenantId = 0) where T : ISettings, new()
         {
-            settingService.SaveSettings(settings.AsNameValueCollection(), tenantId);
+            settingService.SaveSettings(settings.AsDictionary(), tenantId);
         }
-
 
         /// <summary>
         /// Save settings object
@@ -169,12 +168,12 @@ namespace Helios.Common
             }
 
             string key = settings.GetSettingKey(keySelector);
-            //Duck typing is not supported in C#. That's why we're using dynamic type
-            dynamic value = propInfo.GetValue(settings, null);
+            string value = CommonHelper.To<string>(propInfo.GetValue(settings, null));
+
             if (value != null)
-                settingService.SaveSettings(new NameValueCollection { { key, value } }, tenantId);
+                settingService.SaveSettings(new Dictionary<string, string> { { key, value } }, tenantId);
             else
-                settingService.SaveSettings(new NameValueCollection { { key, "" } }, tenantId);
+                settingService.SaveSettings(new Dictionary<string, string> { { key, "" } }, tenantId);
         }
         #endregion
     }
