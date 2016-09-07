@@ -4,7 +4,6 @@ using Helios.Common.Domain;
 using Helios.Common.Services;
 using Helios.Domain;
 using Helios.Infrastructure;
-using Nop.Core;
 
 namespace Helios.Common
 {
