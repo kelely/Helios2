@@ -17,7 +17,8 @@ require.config({
         'jquery': '//cdn.bootcss.com/jquery/2.2.3/jquery.min',
         'bootstrap': '//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min',
 
-        'angular': '//cdn.bootcss.com/angular.js/1.5.8/angular.min',
+        'angular': '//cdn.bootcss.com/angular.js/1.5.8/angular',
+        'angular-route': '//cdn.bootcss.com/angular.js/1.5.8/angular-route',
         // "angular-route": "path/to/angular-route",
 
         // AdminLTE 模板的app.js文件
@@ -28,6 +29,9 @@ require.config({
     shim: {
         'angular': {
             exports: 'angular'
+        },
+        'angular-route': {
+            deps: ['angular']
         },
         'bootstrap': {
             deps: ['jquery']
